@@ -24,7 +24,10 @@ public partial class MainWindow : Window
 
 		WeakReferenceMessenger.Default.Register<MainWindow, PropertyChangedMessage<ThemeMode>>(this, static (window, message) =>
 		{
-			window.ThemeMode = message.NewValue;
+			if( window.DataContext is MainViewModel vm && vm.IsThemeMode )
+			{
+				window.ThemeMode = message.NewValue;
+			}
 		});
 
 		WeakReferenceMessenger.Default.Register<MainWindow, PropertyChangedMessage<bool>>(this, static (window, message) =>

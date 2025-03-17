@@ -13,7 +13,8 @@
     <GroupBox Header="ThemeMode">
       <StackPanel Orientation="Horizontal">
         <CheckBox Content="FluentMode " IsChecked="{Binding IsThemeMode}" VerticalContentAlignment="Center" />
-        <ComboBox ItemsSource="{Binding ThemeModeItems}" SelectedItem="{Binding SelectedThemeMode}" IsEnabled="{Binding IsThemeMode}" />
+        <ComboBox ItemsSource="{Binding ThemeModeItems}" SelectedItem="{Binding SelectedThemeMode}" />
+        <!--<Button Style="{DynamicResource AccentButtonStyle}" Content="Accent Button" Margin="16,0,0,0" />-->
       </StackPanel>
     </GroupBox>
     <TabControl>
@@ -40,7 +41,7 @@
           </GroupBox>
         </StackPanel>
       </TabItem>
-      <TabItem Header="Simple List">
+      <TabItem Header="ListBox">
         <Grid>
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -66,7 +67,7 @@
           </GroupBox>
         </Grid>
       </TabItem>
-      <TabItem Header="Grid List">
+      <TabItem Header="GridView">
         <StackPanel Orientation="Vertical">
           <GroupBox Header="ListView.GridView">
             <ListView ItemsSource="{Binding Items}" d:ItemsSource="{d:SampleData ItemCount=3}">
@@ -89,7 +90,7 @@
         <StackPanel Orientation="Vertical">
           <GroupBox Header="Button Effect">
             <StackPanel Orientation="Horizontal">
-              <Button Content="Standard WPF button" />
+              <Button Content="Standard WPF button" Margin="0,0,16,0" />
               <Button Style="{DynamicResource AccentButtonStyle}" Content="WPF Accent Button" />
             </StackPanel>
           </GroupBox>
