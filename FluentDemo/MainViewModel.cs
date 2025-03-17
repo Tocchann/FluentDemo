@@ -16,7 +16,7 @@ public partial class MainViewModel : ObservableRecipient
 	[ObservableProperty]
 	[NotifyPropertyChangedRecipients]
 	public partial bool IsThemeMode { get; set; }
-	
+
 	public ObservableCollection<ListItem> Items { get; } = new();
 
 	[ObservableProperty]
@@ -24,6 +24,19 @@ public partial class MainViewModel : ObservableRecipient
 
 	[ObservableProperty]
 	public partial bool IsEnabledButtons { get; set; }
+
+	//partial void OnIsThemeModeChanged(bool value)
+	//{
+	//	if (value)
+	//	{
+	//		App.Current.Resources.MergedDictionaries.Add(new() { Source = new("pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.xaml") });
+	//	}
+	//	else
+	//	{
+	//		App.Current.Resources.MergedDictionaries.Clear();
+	//	}
+	//}
+
 	public MainViewModel()
 	{
 		SelectedThemeMode = ThemeMode.System;
