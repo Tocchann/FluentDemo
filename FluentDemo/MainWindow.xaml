@@ -40,10 +40,10 @@
           </GroupBox>
           <GroupBox Header="ハイフンベースの合字">
             <StackPanel Orientation="Vertical">
-              <TextBlock Text="&lt;- &lt;-- &lt;== ==&gt; --&gt; -&gt; ABC abc" FontSize="24" />
-              <TextBlock Text="&lt;- &lt;-- &lt;== ==&gt; --&gt; -&gt; ABC abc" FontSize="24" FontFamily="Cascadia Code" />
-              <TextBlock Text="!= &lt;= &gt;= /= *= += -= 0123456789" FontSize="24" />
-              <TextBlock Text="!= &lt;= &gt;= /= *= += -= 0123456789" FontSize="24" FontFamily="Cascadia Code" />
+              <TextBlock Text="&lt;- &lt;-- &lt;== ==&gt; --&gt; -&gt; ABC abcあいう" FontSize="24" />
+              <TextBlock Text="&lt;- &lt;-- &lt;== ==&gt; --&gt; -&gt; ABC abcあいう" FontSize="24" FontFamily="Cascadia Code" />
+              <TextBlock Text="!= &lt;= &gt;= /= *= += -= 0123456789１２３一二三" FontSize="24" />
+              <TextBlock Text="!= &lt;= &gt;= /= *= += -= 0123456789１２３一二三" FontSize="24" FontFamily="Cascadia Code" />
             </StackPanel>
           </GroupBox>
         </StackPanel>
