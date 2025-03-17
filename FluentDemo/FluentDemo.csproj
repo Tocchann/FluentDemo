@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows10.0.19041.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <!--ThemeModeをコード内で使う場合に出るwarningなので抑制しておく(.NET9 は変わらないだろうと思われる)-->
+    <NoWarn>WPF0001</NoWarn>
+    <!--CommunityToolkit.MVVM(8.4.0以上)を使う場合に設定しておくとよい(部分プロパティ形式で表現できるため)-->
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+  </ItemGroup>
+</Project>
