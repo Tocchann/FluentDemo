@@ -22,6 +22,8 @@ public partial class MainViewModel : ObservableRecipient
 	[ObservableProperty]
 	public partial ListItem? SelectedItem { get; set; }
 
+	[ObservableProperty]
+	public partial bool IsEnabledButtons { get; set; }
 	public MainViewModel()
 	{
 		SelectedThemeMode = ThemeMode.System;

@@ -21,14 +21,21 @@
       <TabItem Header="Text">
         <StackPanel Orientation="Vertical">
           <GroupBox Header="Text">
-            <StackPanel Orientation="Horizontal">
-              <Label Content="Label:" Margin="0,0,2,0" BorderThickness="1" BorderBrush="Black"/>
-              <Border BorderThickness="1" BorderBrush="Black" Margin="0,0,2,0" Padding="2">
-                <TextBlock Text="VerticalAlignment 設定なし" />
-              </Border>
-              <Border BorderThickness="1" BorderBrush="Black" Padding="2">
-                <TextBlock Text="VerticalAlignment=Center" VerticalAlignment="Center" />
-              </Border>
+            <StackPanel Orientation="Vertical">
+              <StackPanel Orientation="Horizontal">
+                <Label Content="Label:" Margin="0,0,2,0" BorderThickness="1" BorderBrush="Black"/>
+                <Border BorderThickness="1" BorderBrush="Black" Margin="0,0,2,0" Padding="2">
+                  <TextBlock Text="VerticalAlignment 設定なし" />
+                </Border>
+                <Border BorderThickness="1" BorderBrush="Black" Padding="2">
+                  <TextBlock Text="VerticalAlignment=Center" VerticalAlignment="Center" />
+                </Border>
+              </StackPanel>
+              <StackPanel Orientation="Horizontal">
+                <Label Content="TexBox:" Margin="0,0,2,0" BorderBrush="Black" BorderThickness="1" />
+                <TextBox Text="VerticalAlignment=Center" VerticalAlignment="Center" />
+                <!--<TextBox Text="VerticalContentAlignment=Center" VerticalContentAlignment="Center" />-->
+              </StackPanel>
             </StackPanel>
           </GroupBox>
           <GroupBox Header="ハイフンベースの合字">
@@ -86,14 +93,42 @@
           </GroupBox>
         </StackPanel>
       </TabItem>
-      <TabItem Header="Buttons">
+      <TabItem Header="TreeView">
+        <TreeView AllowDrop="True" ScrollViewer.CanContentScroll="False">
+          <TreeViewItem Header="Work Documents" IsExpanded="True" IsSelected="True">
+            <TreeViewItem Header="Feature Schedule" />
+            <TreeViewItem Header="Overall Project Plan" />
+          </TreeViewItem>
+          <TreeViewItem Header="Personal Documents">
+            <TreeViewItem Header="Contractor contact info" />
+            <TreeViewItem Header="Home Remodel">
+              <TreeViewItem Header="Paint Color Scheme" />
+              <TreeViewItem Header="Flooring Woodgrain Type" />
+              <TreeViewItem Header="Kitchen Cabinet Style" />
+            </TreeViewItem>
+          </TreeViewItem>
+        </TreeView>
+      </TabItem>
+        <TabItem Header="Buttons">
         <StackPanel Orientation="Vertical">
-          <GroupBox Header="Button Effect">
+          <CheckBox Content="Enable Buttons" IsChecked="{Binding IsEnabledButtons}" />
+          <GroupBox Header="Radio Buttons">
             <StackPanel Orientation="Horizontal">
-              <Button Content="Standard WPF button" Margin="0,0,16,0" />
-              <Button Style="{DynamicResource AccentButtonStyle}" Content="WPF Accent Button" />
+              <RadioButton Content="System" GroupName="ThemeModes" IsChecked="{Binding SelectedThemeMode, Converter={StaticResource BoolToThemeModeConverter}, Mode=TwoWay, ConverterParameter=System}" IsEnabled="{Binding IsEnabledButtons}" />
+              <RadioButton Content="Light" GroupName="ThemeModes" IsChecked="{Binding SelectedThemeMode, Converter={StaticResource BoolToThemeModeConverter}, Mode=TwoWay, ConverterParameter=Light}" IsEnabled="{Binding IsEnabledButtons}" />
+              <RadioButton Content="Dark" GroupName="ThemeModes" IsChecked="{Binding SelectedThemeMode, Converter={StaticResource BoolToThemeModeConverter}, Mode=TwoWay, ConverterParameter=Dark}" IsEnabled="{Binding IsEnabledButtons}" />
             </StackPanel>
           </GroupBox>
+          <GroupBox Header="Button Accent">
+            <StackPanel Orientation="Horizontal">
+              <Button Content="Standard button" Margin="0,0,16,0" IsEnabled="{Binding IsEnabledButtons}" />
+              <Button Style="{DynamicResource AccentButtonStyle}" Content="Accent Button" IsEnabled="{Binding IsEnabledButtons}" />
+            </StackPanel>
+          </GroupBox>
+        </StackPanel>
+      </TabItem>
+      <TabItem Header="Grid Layout">
+        <StackPanel Orientation="Vertical">
           <GroupBox Header="Grid *">
             <Grid ShowGridLines="True">
               <Grid.RowDefinitions>
@@ -154,15 +189,14 @@
               <Button Grid.Column="2" Grid.Row="3" Content="Right Bottom" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
             </Grid>
           </GroupBox>
-          <GroupBox Header="Grid(ContentAlignment) auto,48">
+          <GroupBox Header="Grid(ContentAlignment) *,48">
             <Grid ShowGridLines="True">
               <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
               </Grid.ColumnDefinitions>
               <Grid.RowDefinitions>
-                <RowDefinition Height="48" />
                 <RowDefinition Height="48" />
                 <RowDefinition Height="48" />
                 <RowDefinition Height="48" />
@@ -171,17 +205,13 @@
               <Button Grid.Column="1" Grid.Row="0" Content="Center Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" />
               <Button Grid.Column="2" Grid.Row="0" Content="Right Top" HorizontalContentAlignment="Right" VerticalContentAlignment="Top" />
 
-              <Button Grid.Column="0" Grid.Row="1" Content="No content alignment" HorizontalAlignment="Left" VerticalAlignment="Center" />
-              <Button Grid.Column="1" Grid.Row="1" Content="No content alignment" HorizontalAlignment="Center" VerticalAlignment="Center" />
-              <Button Grid.Column="2" Grid.Row="1" Content="No content alignment" HorizontalAlignment="Right" VerticalAlignment="Center" />
+              <Button Grid.Column="0" Grid.Row="1" Content="Left Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
+              <Button Grid.Column="1" Grid.Row="1" Content="Center Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+              <Button Grid.Column="2" Grid.Row="1" Content="Right Center" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
 
-              <Button Grid.Column="0" Grid.Row="2" Content="Left Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
-              <Button Grid.Column="1" Grid.Row="2" Content="Center Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
-              <Button Grid.Column="2" Grid.Row="2" Content="Right Center" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
-
-              <Button Grid.Column="0" Grid.Row="3" Content="Left Bottom" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" />
-              <Button Grid.Column="1" Grid.Row="3" Content="Center Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" />
-              <Button Grid.Column="2" Grid.Row="3" Content="Right Bottom" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" />
+              <Button Grid.Column="0" Grid.Row="2" Content="Left Bottom" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" />
+              <Button Grid.Column="1" Grid.Row="2" Content="Center Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" />
+              <Button Grid.Column="2" Grid.Row="2" Content="Right Bottom" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" />
             </Grid>
           </GroupBox>
         </StackPanel>
