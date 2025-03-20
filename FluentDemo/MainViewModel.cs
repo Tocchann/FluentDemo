@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System.Collections;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Windows;
 
 namespace FluentDemo;
@@ -80,6 +82,9 @@ public partial class MainViewModel : ObservableRecipient
 
 	public MainViewModel()
 	{
+		DumpResourceDictionaries(App.Current.Resources.MergedDictionaries);
+
+
 		// Fluent.xaml を含んだ app.xaml として定義されているかの判定(動的切り替えの有無判定用)
 		var detect = App.Current.Resources.MergedDictionaries.Any(resDir => resDir.Source.AbsoluteUri.Contains("Fluent.xaml"));
 		IsThemeXamlNotIncluded = detect ==  false; // ここをtrueにすると、テーマのオンオフを切り替えできる
@@ -96,5 +101,18 @@ public partial class MainViewModel : ObservableRecipient
 		Items.Add(new("Item 1", "SubItem 1", 1, true));
 		Items.Add(new("Item 2", "SubItem 2", 2, true));
 		Items.Add(new("Item 3", "SubItem 3", 3, false));
+	}
+
+	private void DumpResourceDictionaries(Collection<ResourceDictionary> dictionaries)
+	{
+		foreach( var resDic in dictionaries)
+		{
+			Debug.WriteLine($"ResourceDictionary: {resDic.Source}");
+			foreach ( var key in resDic.Keys)
+			{
+				Debug.WriteLine($"{key}={resDic[key]}");
+			}
+			DumpResourceDictionaries(resDic.MergedDictionaries);
+		}
 	}
 }
