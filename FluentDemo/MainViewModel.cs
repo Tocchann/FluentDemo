@@ -53,6 +53,8 @@ public partial class MainViewModel : ObservableRecipient
 			Broadcast(SelectedThemeMode, ThemeMode.None, nameof(SelectedThemeMode));
 		}
 	}
+	[ObservableProperty]
+	public partial int FontSize { get; set; }
 
 	/// <summary>
 	/// サンプルのリストデータ(Grid向けのサブアイテムを含む)
@@ -84,6 +86,8 @@ public partial class MainViewModel : ObservableRecipient
 		OnPropertyChanged(nameof(IsThemeXamlNotIncluded));
 		IsThemeMode = detect;
 		SelectedThemeMode = ThemeMode.System;
+
+		FontSize = 24;
 
 		ThemeModeItems.Add(ThemeMode.System);
 		ThemeModeItems.Add(ThemeMode.Light);

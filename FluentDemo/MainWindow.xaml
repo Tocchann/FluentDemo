@@ -38,10 +38,11 @@
           </GroupBox>
           <GroupBox Header="ハイフンベースの合字">
             <StackPanel Orientation="Vertical">
-              <TextBlock Text="&lt;- &lt;-- &lt;== ==&gt; --&gt; -&gt; ABC abcあいう" FontSize="24" />
-              <TextBlock Text="&lt;- &lt;-- &lt;== ==&gt; --&gt; -&gt; ABC abcあいう" FontSize="24" FontFamily="Cascadia Code" />
-              <TextBlock Text="!= &lt;= &gt;= /= *= += -= 0123456789１２３一二三" FontSize="24" />
-              <TextBlock Text="!= &lt;= &gt;= /= *= += -= 0123456789１２３一二三" FontSize="24" FontFamily="Cascadia Code" />
+              <Slider Width="400" Minimum="16" Maximum="64" Value="{Binding FontSize}" HorizontalAlignment="Left"  />
+              <TextBlock Text="&lt;- &lt;-- &lt;== ==&gt; --&gt; -&gt; ABC abcあいう" FontSize="{Binding FontSize}" />
+              <TextBlock Text="&lt;- &lt;-- &lt;== ==&gt; --&gt; -&gt; ABC abcあいう" FontSize="{Binding FontSize}" FontFamily="Cascadia Code" />
+              <TextBlock Text="!= &lt;= &gt;= /= *= += -= 0123456789１２３一二三" FontSize="{Binding FontSize}" />
+              <TextBlock Text="!= &lt;= &gt;= /= *= += -= 0123456789１２３一二三" FontSize="{Binding FontSize}" FontFamily="Cascadia Code" />
             </StackPanel>
           </GroupBox>
         </StackPanel>
