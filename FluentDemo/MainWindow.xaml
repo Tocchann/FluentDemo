@@ -12,9 +12,8 @@
   <StackPanel Margin="16">
     <GroupBox Header="ThemeMode">
       <StackPanel Orientation="Horizontal">
-        <CheckBox Content="FluentMode " IsChecked="{Binding IsThemeMode}" VerticalContentAlignment="Center" />
+        <CheckBox Content="FluentMode " IsChecked="{Binding IsThemeMode}" VerticalContentAlignment="Center" IsEnabled="{Binding IsThemeXamlNotIncluded}" />
         <ComboBox ItemsSource="{Binding ThemeModeItems}" SelectedItem="{Binding SelectedThemeMode}" />
-        <!--<Button Style="{DynamicResource AccentButtonStyle}" Content="Accent Button" Margin="16,0,0,0" />-->
       </StackPanel>
     </GroupBox>
     <TabControl>
@@ -23,18 +22,17 @@
           <GroupBox Header="Text">
             <StackPanel Orientation="Vertical">
               <StackPanel Orientation="Horizontal">
-                <Label Content="Label:" Margin="0,0,2,0" BorderThickness="1" BorderBrush="Black"/>
+                <Label Content="Label:VerticalAlignment 設定なし" Margin="0,0,2,0" BorderThickness="1" BorderBrush="Black"/>
                 <Border BorderThickness="1" BorderBrush="Black" Margin="0,0,2,0" Padding="2">
-                  <TextBlock Text="VerticalAlignment 設定なし" />
+                  <TextBlock Text="TextBlock: VerticalAlignment 設定なし" />
                 </Border>
                 <Border BorderThickness="1" BorderBrush="Black" Padding="2">
-                  <TextBlock Text="VerticalAlignment=Center" VerticalAlignment="Center" />
+                  <TextBlock Text="TextBlock: VerticalAlignment=Center" VerticalAlignment="Center" />
                 </Border>
               </StackPanel>
               <StackPanel Orientation="Horizontal">
-                <Label Content="TexBox:" Margin="0,0,2,0" BorderBrush="Black" BorderThickness="1" />
-                <TextBox Text="VerticalAlignment=Center" VerticalAlignment="Center" />
-                <!--<TextBox Text="VerticalContentAlignment=Center" VerticalContentAlignment="Center" />-->
+                <Label Content="Label:VerticalAlignment=Center" Margin="0,0,2,0" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Center" />
+                <TextBox Text="TextBox: VerticalAlignment=Center" VerticalAlignment="Center" />
               </StackPanel>
             </StackPanel>
           </GroupBox>
