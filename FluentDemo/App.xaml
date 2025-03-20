@@ -5,10 +5,10 @@
              StartupUri="MainWindow.xaml">
   <Application.Resources>
     <ResourceDictionary>
-      <ResourceDictionary.MergedDictionaries>
-        <!--これを入れておくと、テーマモードを無効化できないので要注意-->
-        <!--<ResourceDictionary Source="pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.xaml" />-->
-      </ResourceDictionary.MergedDictionaries>
+      <!--FluentDemo では ResourceDictionary を操作しない(入っていない状態のデモ)-->
+      <!--<ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.xaml" />
+      </ResourceDictionary.MergedDictionaries>-->
       <local:BoolToThemeModeConverter x:Key="BoolToThemeModeConverter" />
     </ResourceDictionary>
   </Application.Resources>
