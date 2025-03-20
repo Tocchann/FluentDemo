@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>FluentDemo</RootNamespace>
+    <!--ThemeModeをコード内で使う場合に出るwarningなので抑制しておく(.NET9 は変わらないだろうと思われる)-->
+    <NoWarn>WPF0001</NoWarn>
+    <!--CommunityToolkit.MVVM(8.4.0以上)を使う場合に設定しておくとよい(部分プロパティ形式で表現できるため)-->
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\FluentDemo\BoolToThemeModeConverter.cs" Link="BoolToThemeModeConverter.cs" />
+    <Compile Include="..\FluentDemo\ListItem.cs" Link="ListItem.cs" />
+    <Compile Include="..\FluentDemo\MainViewModel.cs" Link="MainViewModel.cs" />
+    <Compile Include="..\FluentDemo\MainWindow.xaml.cs" Link="MainWindow.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="..\FluentDemo\MainWindow.xaml" Link="MainWindow.xaml" />
+  </ItemGroup>
+
+</Project>

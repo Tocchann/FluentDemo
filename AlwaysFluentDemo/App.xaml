@@ -1,0 +1,15 @@
+﻿<Application x:Class="FluentDemo.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:FluentDemo"
+             StartupUri="MainWindow.xaml">
+  <Application.Resources>
+    <ResourceDictionary>
+      <!--常にFluentUIで動かすデモなので、定義済みの値として利用できるようにしておく-->
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+      <local:BoolToThemeModeConverter x:Key="BoolToThemeModeConverter" />
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>
