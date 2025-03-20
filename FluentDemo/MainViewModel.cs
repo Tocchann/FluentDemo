@@ -1,12 +1,13 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
 
 namespace FluentDemo;
 
-public partial class MainViewModel : ObservableRecipient
+public partial class MainViewModel : ObservableObject
 {
 	/// <summary>
 	/// テーマモードの選択肢(コンボ用)
@@ -17,14 +18,12 @@ public partial class MainViewModel : ObservableRecipient
 	/// 現在のテーマモード
 	/// </summary>
 	[ObservableProperty]
-	//[NotifyPropertyChangedRecipients]
 	[NotifyPropertyChangedFor("IsThemeMode")]
 	public partial ThemeMode SelectedThemeMode { get; set; }
 	/// <summary>
 	/// テーマモードの有効状態
 	/// </summary>
 	[ObservableProperty]
-	//[NotifyPropertyChangedRecipients]
 	public partial bool IsThemeMode { get; set; }
 
 	/// <summary>
@@ -36,7 +35,7 @@ public partial class MainViewModel : ObservableRecipient
 		// テーマモードが有効な場合のみ、選択を通知する
 		if( IsThemeMode )
 		{
-			Broadcast(SelectedThemeMode, value, nameof(SelectedThemeMode));
+			App.Current.ThemeMode = value;
 		}
 	}
 	/// <summary>
@@ -45,15 +44,8 @@ public partial class MainViewModel : ObservableRecipient
 	/// <param name="value">新たに選択される</param>
 	partial void OnIsThemeModeChanging( bool value)
 	{
-		// テーマモードの On/Off として通知を送る
-		if(value)
-		{
-			Broadcast(ThemeMode.None, SelectedThemeMode, nameof(SelectedThemeMode));
-		}
-		else
-		{
-			Broadcast(SelectedThemeMode, ThemeMode.None, nameof(SelectedThemeMode));
-		}
+		// アプリ全体に影響を与えるので、アプリケーションクラスの値を設定する
+		App.Current.ThemeMode = value ? SelectedThemeMode : ThemeMode.None;
 	}
 	[ObservableProperty]
 	public partial int FontSize { get; set; }
