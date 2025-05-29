@@ -12,7 +12,7 @@
   <StackPanel Margin="16">
     <GroupBox Header="ThemeMode">
       <StackPanel Orientation="Horizontal">
-        <CheckBox Content="FluentMode " IsChecked="{Binding IsThemeMode}" VerticalContentAlignment="Center" IsEnabled="{Binding IsThemeXamlNotIncluded}" />
+        <CheckBox Content="ThemeMode" IsChecked="{Binding IsThemeMode}" VerticalContentAlignment="Center" IsEnabled="{Binding IsThemeXamlNotIncluded}" />
         <ComboBox ItemsSource="{Binding ThemeModeItems}" SelectedItem="{Binding SelectedThemeMode}" />
       </StackPanel>
     </GroupBox>
@@ -35,6 +35,9 @@
                 <TextBox Text="TextBox: VerticalAlignment=Center" VerticalAlignment="Center" />
               </StackPanel>
             </StackPanel>
+          </GroupBox>
+          <GroupBox Header="Expander">
+            <Expander Header="ヘッダー部" Content="コンテント部" />
           </GroupBox>
           <GroupBox Header="ハイフンベースの合字">
             <StackPanel Orientation="Vertical">

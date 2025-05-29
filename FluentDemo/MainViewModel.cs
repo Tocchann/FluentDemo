@@ -18,7 +18,6 @@ public partial class MainViewModel : ObservableObject
 	/// 現在のテーマモード
 	/// </summary>
 	[ObservableProperty]
-	[NotifyPropertyChangedFor("IsThemeMode")]
 	public partial ThemeMode SelectedThemeMode { get; set; }
 	/// <summary>
 	/// テーマモードの有効状態
@@ -84,7 +83,7 @@ public partial class MainViewModel : ObservableObject
 		IsThemeMode = detect;
 		SelectedThemeMode = ThemeMode.System;
 
-		FontSize = 24;
+		FontSize = 12;
 
 		ThemeModeItems.Add(ThemeMode.System);
 		ThemeModeItems.Add(ThemeMode.Light);
