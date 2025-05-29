@@ -131,16 +131,10 @@
           </GroupBox>
           <GroupBox Header="ToggleButton Styles">
             <StackPanel Orientation="Horizontal">
-              <ToggleButton Style="{DynamicResource DefaultComboBoxToggleButtonStyle}" Content="DefaultComboBoxToggleButtonStyle" />
+              <ToggleButton Style="{DynamicResource DefaultComboBoxToggleButtonStyle}" Content="DefaultComboBoxToggleButtonStyle" VerticalAlignment="Center" />
               <ToggleButton Style="{DynamicResource DefaultToggleButtonStyle}" Content="DefaultToggleButtonStyle" />
               <ToggleButton Style="{DynamicResource ToolBarToggleButtonStyle}" Content="ToolBarToggleButtonStyle" />
               <ToggleButton Style="{DynamicResource ExpandCollapseToggleButtonStyle}" Content="ExpandCollapseToggleButtonStyle" />
-              <!--
-              DefaultComboBoxToggleButtonStyle
-              DefaultToggleButtonStyle
-              ToolBarToggleButtonStyle
-              ExpandCollapseToggleButtonStyle
-              -->
             </StackPanel>
           </GroupBox>
                     
